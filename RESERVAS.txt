@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Mesa</title>
+</head>
+<body>
+    <header>
+        <h1>Reservar Mesa</h1>
+    </header>
+
+    <main>
+        <section>
+            <form id="reservaForm">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required><br><br>
+
+                <label for="setor">Setor:</label>
+                <select id="setor" name="setor">
+                    <option value="fiscal">Fiscal</option>
+                    <option value="geral">Geral</option>
+                    <option value="patrimonial">Patrimonial</option>
+                </select><br><br>
+
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required><br><br>
+
+                <label for="horaInicio">Hora Inicial:</label>
+                <input type="time" id="horaInicio" name="horaInicio" required><br><br>
+
+                <label for="horaFinal">Hora Final:</label>
+                <input type="time" id="horaFinal" name="horaFinal" required><br><br>
+
+                <label for="numeroMesa">Número da Mesa:</label>
+                <input type="number" id="numeroMesa" name="numeroMesa" required><br><br>
+
+                <button type="submit">Confirmar Reserva</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sistema de Reservas de Mesa</p>
+    </footer>
+
+    <script>
+        const reservas = [];
+
+        document.getElementById("reservaForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value;
+            const setor = document.getElementById("setor").value;
+            const data = document.getElementById("data").value;
+            const horaInicio = document.getElementById("horaInicio").value;
+            const horaFinal = document.getElementById("horaFinal").value;
+            const numeroMesa = document.getElementById("numeroMesa").value;
+
+            const novaReserva = {
+                nome,
+                setor,
+                data,
+                horaInicio,
+                horaFinal,
+                numeroMesa
+            };
+
+            // Verificando se já existe uma reserva para o mesmo horário e mesa
+            const reservaExistente = reservas.find(reserva => 
+                reserva.data === novaReserva.data &&
+                reserva.numeroMesa === novaReserva.numeroMesa &&
+                (
+                    (novaReserva.horaInicio >= reserva.horaInicio && novaReserva.horaInicio < reserva.horaFinal) ||
+                    (novaReserva.horaFinal > reserva.horaInicio && novaReserva.horaFinal <= reserva.horaFinal)
+                )
+            );
+
+            if (reservaExistente) {
+                alert("A mesa já está reservada para o horário escolhido. Tente outro horário.");
+            } else {
+                reservas.push(novaReserva);
+                alert("Reserva confirmada com sucesso!");
+                // Resetando o formulário após a reserva
+                document.getElementById("reservaForm").reset();
+            }
+        });
+    </script>
+</body>
+</html>
