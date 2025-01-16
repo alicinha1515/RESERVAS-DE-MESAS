@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Reservas de Mesa</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Sistema de Reservas de Mesa</h1>
-    </header>
+Este projeto tem como objetivo fornecer um sistema simples para que os colaboradores possam reservar mesas em um escritório de maneira eficiente e organizada. O sistema permite que os usuários escolham a data, hora e mesa disponíveis para otimizar o uso do espaço e melhorar a organização do ambiente de trabalho.
 
-    <main>
-        <section class="intro">
-            <p>Bem-vindo ao sistema de reservas de mesa para o escritório! Escolha uma mesa e garanta seu espaço.</p>
-            <a href="reserva.html" class="btn">Fazer uma Reserva</a>
-        </section>
-    </main>
+Funcionalidades
 
-    <footer>
-        <p>&copy; 2025 Sistema de Reservas de Mesa</p>
-    </footer>
-</body>
-</html>
+- **Página Inicial**: Apresentação do sistema e link para acessar a página de reservas.
+- **Página de Reservas**: Permite a escolha de mesa, data e horário para garantir a reserva.
+- **Reserva Única**: Sistema evita reservas duplicadas para o mesmo horário e mesa.
+
+Como usar
+
+1. Acesse o sistema por meio do link da página inicial.
+2. Clique em "Fazer uma Reserva" para acessar a página de reservas.
+3. Preencha as informações necessárias, como nome, setor, data, horário e número da mesa.
+4. Confirme sua reserva!
+
+Licença
+
+Este projeto está sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+Contribuições
+
+Sinta-se à vontade para contribuir com melhorias e sugestões para o sistema. Para contribuir, basta abrir uma *issue* ou enviar um *pull request*.
