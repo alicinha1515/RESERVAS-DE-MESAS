@@ -17,6 +17,4 @@ Licença
 
 Este projeto está sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-Contribuições
 
-Sinta-se à vontade para contribuir com melhorias e sugestões para o sistema. Para contribuir, basta abrir uma *issue* ou enviar um *pull request*.
