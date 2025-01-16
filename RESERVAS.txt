@@ -38,6 +38,11 @@
                 <button type="submit">Confirmar Reserva</button>
             </form>
         </section>
+
+        <section>
+            <h2>Reservas Confirmadas:</h2>
+            <ul id="listaReservas"></ul>
+        </section>
     </main>
 
     <footer>
@@ -45,7 +50,18 @@
     </footer>
 
     <script>
-        const reservas = [];
+        const reservas = JSON.parse(localStorage.getItem('reservas')) || [];
+
+        function atualizarListaReservas() {
+            const lista = document.getElementById("listaReservas");
+            lista.innerHTML = ""; // Limpar lista antes de atualizar
+
+            reservas.forEach(reserva => {
+                const li = document.createElement("li");
+                li.textContent = `Nome: ${reserva.nome} | Setor: ${reserva.setor} | Mesa: ${reserva.numeroMesa} | Data: ${reserva.data} | Horário: ${reserva.horaInicio} - ${reserva.horaFinal}`;
+                lista.appendChild(li);
+            });
+        }
 
         document.getElementById("reservaForm").addEventListener("submit", function(event) {
             event.preventDefault();
@@ -57,6 +73,11 @@
             const horaFinal = document.getElementById("horaFinal").value;
             const numeroMesa = document.getElementById("numeroMesa").value;
 
+            if (horaInicio >= horaFinal) {
+                alert("A hora de início deve ser anterior à hora de término.");
+                return;
+            }
+
             const novaReserva = {
                 nome,
                 setor,
@@ -66,7 +87,6 @@
                 numeroMesa
             };
 
-            // Verificando se já existe uma reserva para o mesmo horário e mesa
             const reservaExistente = reservas.find(reserva => 
                 reserva.data === novaReserva.data &&
                 reserva.numeroMesa === novaReserva.numeroMesa &&
@@ -80,11 +100,15 @@
                 alert("A mesa já está reservada para o horário escolhido. Tente outro horário.");
             } else {
                 reservas.push(novaReserva);
+                localStorage.setItem('reservas', JSON.stringify(reservas));
                 alert("Reserva confirmada com sucesso!");
-                // Resetando o formulário após a reserva
                 document.getElementById("reservaForm").reset();
+                atualizarListaReservas();
             }
         });
+
+        // Inicializar lista de reservas ao carregar a página
+        atualizarListaReservas();
     </script>
 </body>
 </html>
