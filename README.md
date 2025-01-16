@@ -1,16 +1,23 @@
-# Sistema de Reservas de Mesa para Escritório
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reservas de Mesa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Reservas de Mesa</h1>
+    </header>
 
-Este site permite que os colaboradores reservem mesas para trabalho no escritório de maneira simples e eficiente. Escolha a data, horário e mesa disponíveis para garantir seu espaço. A plataforma oferece uma solução prática para otimizar o uso do escritório e proporcionar um ambiente organizado.
+    <section>
+        <p>Bem-vindo ao sistema de reservas de mesa para o escritório! Escolha uma mesa e garanta seu espaço.</p>
+        <a href="reserva.html" class="btn">Fazer uma Reserva</a>
+    </section>
 
-## Como Usar
-1. Acesse o site e selecione a data e o horário desejado.
-2. Escolha a mesa disponível para reserva.
-3. Confirme os detalhes da reserva e finalize.
-
-## Tecnologias Usadas
-- HTML
-- CSS
-- JavaScript
-
-## Licença
-Este projeto está licenciado sob a licença MIT.
+    <footer>
+        <p>&copy; 2025 Sistema de Reservas de Mesa</p>
+    </footer>
+</body>
+</html>
